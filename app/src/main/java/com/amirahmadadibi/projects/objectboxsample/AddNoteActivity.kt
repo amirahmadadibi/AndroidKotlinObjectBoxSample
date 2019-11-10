@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.amirahmadadibi.projects.objectboxsample.database.ObjectBox
 import com.amirahmadadibi.projects.objectboxsample.model.Note
+import com.amirahmadadibi.projects.objectboxsample.model.Note_
 import io.objectbox.Box
 import kotlinx.android.synthetic.main.activity_add_note.*
 
@@ -24,7 +25,9 @@ class AddNoteActivity : AppCompatActivity() {
         noteList.forEach {
             Log.d("tagxx", it.toString())
         }
-
+        
+        var query = notesBox.query().equal(Note_.id,1).build().find()
+        Log.d("tagxx", query.size.toString())
     }
 
 
