@@ -8,6 +8,7 @@ import io.objectbox.BoxStore
  * Created by Amirahmad Adibi.
  * ObjectBoxSample | Copyrights 2019-11-10.
  */
+
 object ObjectBox {
 
     lateinit var boxStore: BoxStore
