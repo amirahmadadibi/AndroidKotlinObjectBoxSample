@@ -9,6 +9,7 @@ import io.objectbox.BoxStore
  * ObjectBoxSample | Copyrights 2019-11-10.
  */
 object ObjectBox {
+
     lateinit var boxStore: BoxStore
         private set
 
