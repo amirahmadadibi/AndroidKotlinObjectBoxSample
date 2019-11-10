@@ -9,6 +9,7 @@ import com.amirahmadadibi.projects.objectboxsample.database.ObjectBox
 import com.amirahmadadibi.projects.objectboxsample.model.Note
 import com.amirahmadadibi.projects.objectboxsample.model.Note_
 import io.objectbox.Box
+import io.objectbox.kotlin.query
 import kotlinx.android.synthetic.main.activity_add_note.*
 
 class AddNoteActivity : AppCompatActivity() {
@@ -21,13 +22,23 @@ class AddNoteActivity : AppCompatActivity() {
         //initialize our box
         notesBox = ObjectBox.boxStore.boxFor(Note::class.java)
 
-        var noteList  = notesBox.all
+        var noteList = notesBox.all
         noteList.forEach {
             Log.d("tagxx", it.toString())
         }
-        
-        var query = notesBox.query().equal(Note_.id,1).build().find()
+
+        var query = notesBox.query().equal(Note_.id, 1).build().find()
         Log.d("tagxx", query.size.toString())
+
+        var advancedQuery = notesBox.query{
+            equal(Note_.titile,"test")
+            order(Note_.id)
+            between(Note_.id,1,100)
+        }.find()
+
+        noteList.forEach {
+            Log.d("tagxx", it.toString())
+        }
     }
 
 
